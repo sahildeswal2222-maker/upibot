@@ -6,8 +6,9 @@ from io import BytesIO
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+load_dotenv(dotenv_path=".env", override=True)
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+print("Loaded token:", BOT_TOKEN)  # TEMP: To verify on Render logs
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -45,5 +46,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
